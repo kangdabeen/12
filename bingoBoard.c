@@ -50,10 +50,11 @@ void bingo_print(void)
 
 void bingo_inputNum(int sel)
 {
-	
+	bingoBoard[numberStatus[sel-1]/N_SIZE][numberStatus[sel-1]%N_SIZE] = BINGONUM_HOLE;
 }
 
 int bingo_countCompletedLined(void)
 {
   
 }
+

@@ -19,9 +19,11 @@ int main(int argc, char *argv[]) {
 	
 	//game 
 	
+	
+	
 	bingo_init();
 	bingo_print();
-	bingo_inputNum(21);
+	bingo_inputNum(3);
 	bingo_print();
 	
 	//initialize bingo boards
