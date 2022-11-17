@@ -21,6 +21,8 @@ int main(int argc, char *argv[]) {
 	
 	bingo_init();
 	bingo_print();
+	bingo_inputNum(21);
+	bingo_print();
 	
 	//initialize bingo boards
 	
