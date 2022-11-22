@@ -53,9 +53,6 @@ int main(int argc, char *argv[]) {
 	
 	bingo_init();
 	//initialize bingo boards
-	int i, j, k;
-    int randNum;
-    int maxNum = N_SIZE*N_SIZE;
 	
 	while (check_gameEnd()== BINGO_RES_UNFINISHED)	
 	{
@@ -77,7 +74,7 @@ int main(int argc, char *argv[]) {
 	}
 	
 
-}
+
 
 	
 	
