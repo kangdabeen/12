@@ -62,6 +62,67 @@ void bingo_inputNum(int sel)
 
 int bingo_countCompletedLined(void)
 {
-  
+  int i,j;
+  int cnt = 0;
+  int checkBingo;
+
+
+//check row 행에 대해 따짐    
+	for (i=0; i<N_SIZE; i++) {
+		checkBingo = 1;
+		for (j=0; j<N_SIZE; j++)
+			if (bingoBoard[i][j]>0) {
+				checkBingo = 0;
+				break;
+			}
+
+	if (checkBingo == 1) {
+		cnt ++;
+	}
 }
+
+//열
+	for (j=0; j<N_SIZE; j++){
+		checkBingo = 1;
+		for(i=0; i<N_SIZE; i++){
+			if (bingoBoard[i][j]>0){
+				checkBingo = 0;
+				break;
+			}
+			
+		if (checkBingo ==1 )
+		cnt ++;
+		}
+	} 
+
+//대각선 1
+	checkBingo=1;
+		for (i=0; i<N_SIZE; i++)
+		{
+			if (bingoBoard[i][i]>0)
+			{
+				checkBingo =0;
+				break;
+			}
+		}
+		if (checkBingo == 1)
+		cnt ++;
+//대각선 2 
+checkBingo=1;
+		for (i=0; i<N_SIZE; i++)
+		{
+			if (bingoBoard[i][N_SIZE-i-1]>0)
+			{
+				checkBingo =0;
+				break;
+			}
+		}
+		if (checkBingo == 1)
+		cnt ++;
+
+
+}
+
+return cnt;
+
 

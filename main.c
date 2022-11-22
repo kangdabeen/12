@@ -3,9 +3,21 @@
 #include <time.h>
 #include "bingoBoard.h"
 
+#define BINGO_RES_UNFINISHED  -1
+#define BINGO_RES_FINISHED  0
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
+int check_gameEnd(void){
+	int res =  BINGO_RES_UNFINISHED;
+	if (bingo_countCompletedLine() >= N_LINE)
+	res = BINGO_RES_FINISHED;
+	
+	return res;}
+
+
 int get_number(void){
+	
 int selNum=0;
 do{
 	printf("select a number : ");
@@ -24,7 +36,7 @@ return selNum;
 
 
 int main(int argc, char *argv[]) {
-	
+	int selNum;
 	
 	srand((unsigned) (time(NULL)) ) ;
 	
@@ -40,29 +52,33 @@ int main(int argc, char *argv[]) {
 	
 	
 	bingo_init();
-	bingo_print();
-	selNum = get_number();
-	bingo_inputNum(selNum);
-	bingo_print();
-	
 	//initialize bingo boards
+	int i, j, k;
+    int randNum;
+    int maxNum = N_SIZE*N_SIZE;
 	
-	//while (game is not end) //줄수가 N_BINGO보다 작음   
-	/*
+	while (check_gameEnd()== BINGO_RES_UNFINISHED)	
 	{
 		//bingo board print
+		bingo_print();
+		
 		
 		//print no. of completed line
+		printf("No, of completed line : %i\n", bingo_countCompletedLine());
+		
+		
 		
 		//select a number
+		selNum = get_number();
+		
 		
 		//update the board status
+		bingo_inputNum(selNum);
 	}
-	*/
+	
 
-		
-	
-	
+}
+
 	
 	
 	//ending
