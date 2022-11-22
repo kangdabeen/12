@@ -19,6 +19,7 @@ int check_gameEnd(void){
 int get_number(void){
 	
 int selNum=0;
+
 do{
 	printf("select a number : ");
 	scanf("%d", &selNum);
@@ -36,6 +37,7 @@ return selNum;
 
 
 int main(int argc, char *argv[]) {
+	
 	int selNum;
 	
 	srand((unsigned) (time(NULL)) ) ;
@@ -45,7 +47,7 @@ int main(int argc, char *argv[]) {
 	printf("******************************************\n");
 	printf("               BINGO GAME                 \n");
 	printf("******************************************\n");
-	printf("==========================================\n");
+	printf("==========================================\n\n\n");
 	
 	//game 
 	
@@ -88,6 +90,7 @@ int main(int argc, char *argv[]) {
 	printf("******************************************\n");
 	printf("==========================================\n\n");
 	
+	bingo_print();
 	
 	return 0;
 }
