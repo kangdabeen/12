@@ -65,10 +65,15 @@ void bingo_print(void)
 
 void bingo_inputNum(int sel)
 {
-	bingoBoard[numberStatus[sel-1]/N_SIZE][numberStatus[sel-1]%N_SIZE] = BINGONUM_HOLE;
+	int row, col;
+	row = numberStatus[sel-1]/N_SIZE;
+	col = numberStatus[sel-1]%N_SIZE;
+	
+	bingoBoard[row][col] = BINGONUM_HOLE;
+	numberStatus[sel-1] = BINGONUM_HOLE;
 }
 
-int bingo_countCompletedLined(void)
+int bingo_countCompletedLine(void)
 {
   int i,j;
   int cnt = 0;
@@ -79,21 +84,22 @@ int bingo_countCompletedLined(void)
 	for (i=0; i<N_SIZE; i++) {
 		checkBingo = 1;
 		for (j=0; j<N_SIZE; j++)
-			if (bingoBoard[i][j]>0) {
+			if (bingoBoard[i][j]>0) 
+			{
 				checkBingo = 0;
 				break;
 			}
 
-	if (checkBingo == 1) {
+	if (checkBingo == 1)
 		cnt ++;
 	}
-}
 
 //열
 	for (j=0; j<N_SIZE; j++){
 		checkBingo = 1;
-		for(i=0; i<N_SIZE; i++){
-			if (bingoBoard[i][j]>0){
+		for(i=0; i<N_SIZE; i++)
+			if (bingoBoard[i][j]>0)
+			{
 				checkBingo = 0;
 				break;
 			}
@@ -101,7 +107,7 @@ int bingo_countCompletedLined(void)
 		if (checkBingo ==1 )
 		cnt ++;
 		}
-	} 
+	 
 
 //대각선 1
 	checkBingo=1;
@@ -115,6 +121,7 @@ int bingo_countCompletedLined(void)
 		}
 		if (checkBingo == 1)
 		cnt ++;
+		
 //대각선 2 
 checkBingo=1;
 		for (i=0; i<N_SIZE; i++)
@@ -129,8 +136,7 @@ checkBingo=1;
 		cnt ++;
 
 
-}
 
 return cnt;
-
+}
 
